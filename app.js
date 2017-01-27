@@ -10,7 +10,6 @@ var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var debug = require('debug')('app');
-
 var route = require('./routes/route');
 var Model = require('./models/model');
 
@@ -70,6 +69,14 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.get('/', route.index);
 app.post('/', route.indexPost);
+
+app.get('/signin', route.signIn);
+app.post('/signin', route.signInPost);
+
+app.get('/signup', route.signUp);
+app.post('/signup', route.signUpPost);
+
+app.get('/signout', route.signOut);
 
 app.use(route.notFound404);
 
