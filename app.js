@@ -1,15 +1,16 @@
-var config = require('config');
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var bcrypt = require('bcrypt-nodejs');
-var ejs = require('ejs');
-var logger = require('morgan');
-var path = require('path');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var debug = require('debug')('app');
+var config          = require('config');
+var express         = require('express');
+var bodyParser      = require('body-parser');
+var cookieParser    = require('cookie-parser');
+var session         = require('express-session');
+var bcrypt          = require('bcrypt-nodejs');
+var ejs             = require('ejs');
+var logger          = require('morgan');
+var path            = require('path');
+var passport        = require('passport');
+var LocalStrategy   = require('passport-local').Strategy;
+var debug           = require('debug')('app');
+
 var route = require('./routes/route');
 var Model = require('./models/model');
 
@@ -64,9 +65,8 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-/**
- * Routes
- */
+//Routes
+
 app.get('/', route.index);
 app.post('/', route.indexPost);
 
@@ -75,6 +75,8 @@ app.post('/signin', route.signInPost);
 
 app.get('/signup', route.signUp);
 app.post('/signup', route.signUpPost);
+
+app.get('/profile', route.profile);
 
 app.get('/signout', route.signOut);
 

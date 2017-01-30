@@ -1,3 +1,35 @@
 <% include ./partials/header %>
-    <h1><%= title %></h1>
+
+<h1><%= title %></h1>
+
+<form id="user-signup-form" method="post" action="/signup">
+
+    <% if(typeof(errorMessage) !== 'undefined') {%>
+        <span><%= errorMessage %></span><br>
+    <% } %>
+
+    <% if(typeof(ref) !== 'undefined') {%>
+        <label>Referral</label>
+        <input type="text" name="referred" value="<%= ref %>" required disabled><br>
+    <% } %>
+
+    <label>Full Name</label>
+    <input type="text" name="full_name" required><br>
+
+    <label>Username</label>
+    <input type="text" name="username" required><br>
+
+    <label>E-Mail</label>
+    <input type="email" name="email" required><br>
+
+    <label>Password</label>
+    <input type="password" name="password" required><br>
+
+    <br>
+
+    <a id="user-signup" href="javascript: void(0)">Register</a>
+    <a href="/signin">Login</a>
+
+</form>
+
 <% include ./partials/footer %>

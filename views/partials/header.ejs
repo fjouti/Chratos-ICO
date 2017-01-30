@@ -1,5 +1,6 @@
 <html class="no-js" lang="">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title><%= title %></title>
@@ -10,5 +11,18 @@
 
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/js/main.js"></script>
+
 </head>
 <body>
+
+    <header>
+        <div>
+            <% if(typeof(user) !== 'undefined') {%>
+                <a href="/">Home</a>
+                <a href="/profile"><%= user.username %></a>
+                <a href="/signout">Logout</a>
+            <% } else { %>
+                <a href="/signin">Sign In</a> / <a href="/signup">SignUp</a>
+            <% } %>
+        </div>
+    </header>
