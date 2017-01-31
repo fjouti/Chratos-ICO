@@ -5,11 +5,11 @@
 <form id="user-signin-form" method="post" action="/signin">
 
     <% if(typeof(errorMessage) !== 'undefined') {%>
-        <span><%= errorMessage %></span>
+        <span><%= errorMessage %></span><br>
     <% } %>
 
     <label>Username</label>
-    <input type="text" name="username" required>
+    <input type="text" name="username" required><br>
 
     <label>Password</label>
     <input type="password" name="password" required>

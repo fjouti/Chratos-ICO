@@ -39,7 +39,6 @@ var signIn = function (req, res, next) {
     if (req.isAuthenticated())
         res.redirect('/');
 
-    console.log(req.headers);
     res.render('signin', {title: 'Sign In'});
 };
 
@@ -68,44 +67,62 @@ var signUp = function (req, res, next) {
         if (req.query.ref !== undefined) {
             res.render('signup', {title: 'Sign Up', ref: req.query.ref});
         } else {
-            res.render('signup', {title: 'Sign Up', errorMessage: 'Referral ID is missing'});
+            res.render('signup', {title: 'Sign Up'});
         }
     }
 };
 
 var signUpPost = function (req, res, next) {
     var user = req.body;
-    console.log(user);
 
-    if (!user.full_name || !user.username || !user.email || !user.password) {
-        res.render('signup', {title: 'signup', errorMessage: 'Please, fill in all fields'});
-        return;
-    } else if (!validator.isEmail(user.email)) {
-        res.render('signup', {title: 'signup', errorMessage: 'Please, enter a valid E-Mail address'});
-        return;
+    if(!user.referred) {
+
+        res.render('signup', {title: 'signup', errorMessage: 'Referrer field is empty'});
+
+    } else {
+        new Model.User({referral: user.referred})
+            .fetch()
+            .then(function(model){
+                if(!model){
+
+                    res.render('signup', {title: 'signup', errorMessage: 'Referrer is missing'});
+
+                } else {
+
+                    if (!user.full_name || !user.username || !user.email || !user.password) {
+                        res.render('signup', {title: 'signup', errorMessage: 'Please, fill in all fields'});
+                        return;
+                    } else if (!validator.isEmail(user.email)) {
+                        res.render('signup', {title: 'signup', errorMessage: 'Please, enter a valid E-Mail address'});
+                        return;
+                    }
+
+                    new Model.User({username: user.username})
+                        .fetch()
+                        .then(function(model) {
+                            if (model) {
+                                res.render('signup', {title: 'signup', errorMessage: 'Username already exists'});
+                            } else {
+                                var password = user.password;
+                                var hash = bcrypt.hashSync(password);
+
+                                var signUpUser = new Model.User({
+                                    username    : user.username,
+                                    password    : hash,
+                                    full_name   : user.full_name,
+                                    email       : user.email,
+                                    referral    : md5( new Date().getTime() ),
+                                    referred    : user.referred
+                                });
+                                signUpUser.save().then(function(model) {
+                                    signInPost(req, res, next);
+                                });
+                            }
+                    });
+
+                }
+            })
     }
-
-    var usernamePromise = new Model.User({username: user.username}).fetch();
-    return usernamePromise.then(function(model) {
-        if (model) {
-            res.render('signup', {title: 'signup', errorMessage: 'Username already exists'});
-        } else {
-            var password = user.password;
-            var hash = bcrypt.hashSync(password);
-
-            var signUpUser = new Model.User({
-                username    : user.username,
-                password    : hash,
-                full_name   : user.full_name,
-                email       : user.email,
-                referral    : md5( new Date().getTime() ),
-                referred    : user.referred
-            });
-            signUpUser.save().then(function(model) {
-                signInPost(req, res, next);
-            });
-        }
-    });
 };
 
 var profile = function (req, res, next) {
@@ -132,8 +149,14 @@ var signOut = function (req, res, next) {
 };
 
 var notFound404 = function (req, res, next) {
+    var user = req.user;
+
+    if (user !== undefined) {
+        user = user.toJSON();
+    }
+
     res.status(404);
-    res.render('404', {title: '404 Not Found'});
+    res.render('404', {title: '404 Not Found', user: user});
 };
 
 module.exports.index = index;

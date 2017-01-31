@@ -8,10 +8,9 @@
         <span><%= errorMessage %></span><br>
     <% } %>
 
-    <% if(typeof(ref) !== 'undefined') {%>
-        <label>Referral</label>
-        <input type="text" name="referred" value="<%= ref %>" required disabled><br>
-    <% } %>
+    <% if(typeof(ref) !== 'undefined') { var ref = '' } %>
+    <label>Referrer</label>
+    <input type="text" name="referred" value="<%= ref %>" required><br>
 
     <label>Full Name</label>
     <input type="text" name="full_name" required><br>
