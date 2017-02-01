@@ -9,7 +9,6 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "bitcoin": "^3.0.1",
     "body-parser": "^1.15.2",
     "bookshelf": "^0.10.2",
     "config": "^1.24.0",

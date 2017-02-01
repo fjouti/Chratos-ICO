@@ -11,6 +11,7 @@ var passport        = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var debug           = require('debug')('app');
 
+
 var route = require('./routes/route');
 var Model = require('./models/model');
 
