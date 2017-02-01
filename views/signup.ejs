@@ -8,10 +8,6 @@
         <span><%= errorMessage %></span><br>
     <% } %>
 
-    <% if(typeof(ref) !== 'undefined') { var ref = '' } %>
-    <label>Referrer</label>
-    <input type="text" name="referred" value="<%= ref %>" required><br>
-
     <label>Full Name</label>
     <input type="text" name="full_name" required><br>
 
@@ -28,6 +24,9 @@
 
     <a id="user-signup" href="javascript: void(0)">Register</a>
     <a href="/signin">Login</a>
+
+    <a href="/auth/google">Login with Google</a>
+    <a href="/auth/facebook">Login with Facebook</a>
 
 </form>
 

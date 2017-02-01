@@ -4,5 +4,16 @@
     "user": "root",
     "password": "",
     "database": "chratos"
+  },
+  "googleStrategy": {
+    "clientID": "208860226483-f7u7bfpg7i069jr3g9d0ter02j7m0656.apps.googleusercontent.com",
+    "clientSecret": "VwARzbUrXODIOr38uxYx4OSU",
+    "callbackURL": "http://localhost:3000/auth/google/callback"
+  },
+  "facebookStrategy": {
+    "clientID": "997122823720997",
+    "clientSecret": "964c4987be7b379d635627cc41ae2ff4",
+    "callbackURL": "http://localhost:3000/auth/facebook/callback",
+    "profileFields": ["id", "name", "picture", "emails"]
   }
 }

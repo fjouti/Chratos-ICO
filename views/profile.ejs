@@ -2,9 +2,7 @@
 
 <h1><%= title %></h1>
 <p>Username: <%= user.username %></p>
-<p>Full Name: <input type="text" value="<%= user.full_name %>"></p>
-<p>Email: <input type="text" value="<%= user.email %>"></p>
-<p>Referred: <%= user.referred %></p>
-<p>Referral URL: <%= user.referralUrl %></p>
+<p>Full Name: <%= user.full_name %></p>
+<p>Email: <%= user.email %></p>
 
 <% include ./partials/footer %>

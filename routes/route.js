@@ -64,65 +64,41 @@ var signUp = function (req, res, next) {
     if (req.isAuthenticated()) {
         res.redirect('/');
     } else {
-        if (req.query.ref !== undefined) {
-            res.render('signup', {title: 'Sign Up', ref: req.query.ref});
-        } else {
-            res.render('signup', {title: 'Sign Up'});
-        }
+        res.render('signup', {title: 'Sign Up'});
     }
 };
 
 var signUpPost = function (req, res, next) {
     var user = req.body;
 
-    if(!user.referred) {
-
-        res.render('signup', {title: 'signup', errorMessage: 'Referrer field is empty'});
-
-    } else {
-        new Model.User({referral: user.referred})
-            .fetch()
-            .then(function(model){
-                if(!model){
-
-                    res.render('signup', {title: 'signup', errorMessage: 'Referrer is missing'});
-
-                } else {
-
-                    if (!user.full_name || !user.username || !user.email || !user.password) {
-                        res.render('signup', {title: 'signup', errorMessage: 'Please, fill in all fields'});
-                        return;
-                    } else if (!validator.isEmail(user.email)) {
-                        res.render('signup', {title: 'signup', errorMessage: 'Please, enter a valid E-Mail address'});
-                        return;
-                    }
-
-                    new Model.User({username: user.username})
-                        .fetch()
-                        .then(function(model) {
-                            if (model) {
-                                res.render('signup', {title: 'signup', errorMessage: 'Username already exists'});
-                            } else {
-                                var password = user.password;
-                                var hash = bcrypt.hashSync(password);
-
-                                var signUpUser = new Model.User({
-                                    username    : user.username,
-                                    password    : hash,
-                                    full_name   : user.full_name,
-                                    email       : user.email,
-                                    referral    : md5( new Date().getTime() ),
-                                    referred    : user.referred
-                                });
-                                signUpUser.save().then(function(model) {
-                                    signInPost(req, res, next);
-                                });
-                            }
-                    });
-
-                }
-            })
+    if (!user.full_name || !user.username || !user.email || !user.password) {
+        res.render('signup', {title: 'signup', errorMessage: 'Please, fill in all fields'});
+        return;
+    } else if (!validator.isEmail(user.email)) {
+        res.render('signup', {title: 'signup', errorMessage: 'Please, enter a valid E-Mail address'});
+        return;
     }
+
+    new Model.User({username: user.username})
+        .fetch()
+        .then(function(model) {
+            if (model) {
+                res.render('signup', {title: 'signup', errorMessage: 'Username already exists'});
+            } else {
+                var password = user.password;
+                var hash = bcrypt.hashSync(password);
+
+                var signUpUser = new Model.User({
+                    username    : user.username,
+                    password    : hash,
+                    full_name   : user.full_name,
+                    email       : user.email
+                });
+                signUpUser.save().then(function(model) {
+                    signInPost(req, res, next);
+                });
+            }
+    });
 };
 
 var profile = function (req, res, next) {
@@ -133,7 +109,6 @@ var profile = function (req, res, next) {
 
         if (user !== undefined) {
             user = user.toJSON();
-            user.referralUrl = 'http://' + req.headers.host + '/signup?ref=' + user.referral;
         }
 
         res.render('profile', {title: 'Profile', user: user});
@@ -146,6 +121,31 @@ var signOut = function (req, res, next) {
     }
 
     res.redirect('/signin');
+};
+
+var googleAuth = function(req, res, next){
+    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email'] })(req, res, next);
+};
+
+var googleCallback = function (req, res, next) {
+    passport.authenticate('google', { failureRedirect: '/siginin' })(req, res, function(err, user){
+        console.log(err);
+        console.log(user);
+        res.redirect('/');
+    });
+};
+
+var facebookAuth = function(req, res, next){
+    passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_friends'] })(req, res, next);
+};
+
+var facebookCallback = function (req, res, next) {
+    passport.authenticate('facebook', {
+        successRedirect: '/',
+        failureRedirect: '/signin' })(req, res, function(err, user){
+            console.log(err);
+            console.log(user);
+        })
 };
 
 var notFound404 = function (req, res, next) {
@@ -171,5 +171,11 @@ module.exports.signUpPost = signUpPost;
 module.exports.profile = profile;
 
 module.exports.signOut = signOut;
+
+module.exports.googleAuth = googleAuth;
+module.exports.googleCallback = googleCallback;
+
+module.exports.facebookAuth = facebookAuth;
+module.exports.facebookCallback = facebookCallback;
 
 module.exports.notFound404 = notFound404;
