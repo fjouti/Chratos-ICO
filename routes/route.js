@@ -1,14 +1,15 @@
 var passport    = require('passport');
 var bcrypt      = require('bcrypt-nodejs');
-var md5         = require('md5');
 var config      = require('config');
 var validator   = require('validator');
 var debug       = require('debug')('route');
+
 var Model       = require('../models/model');
+var funcs       = require('../functions');
 
 var index = function (req, res, next) {
     if (!req.isAuthenticated()) {
-        res.redirect('/signin');
+        res.render('index', {title: 'Homepage'});
     } else {
 
         var user = req.user;
@@ -17,7 +18,7 @@ var index = function (req, res, next) {
             user = user.toJSON();
         }
 
-        res.render('index', {title: 'Homepage', user: user})
+        res.render('index', {title: 'Homepage', user: user});
     }
 
 };
@@ -64,7 +65,19 @@ var signUp = function (req, res, next) {
     if (req.isAuthenticated()) {
         res.redirect('/');
     } else {
-        res.render('signup', {title: 'Sign Up'});
+        if(req.query.ref !== undefined) {
+            new Model.User({referral: req.query.ref})
+                .fetch()
+                .then(function(data){
+                    if(data){
+                        res.render('signup', {title: 'Sign Up', ref: req.query.ref});
+                    } else {
+                        res.render('signup', {title: 'Sign Up', errorMessage: 'Incorrect Referral.'});
+                    }
+                })
+        } else {
+            res.render('signup', {title: 'Sign Up'});
+        }
     }
 };
 
@@ -92,7 +105,9 @@ var signUpPost = function (req, res, next) {
                     username    : user.username,
                     password    : hash,
                     full_name   : user.full_name,
-                    email       : user.email
+                    email       : user.email,
+                    referral    : funcs.generateRefHash(),
+                    referred    : user.referred ? user.referred : '2529c6e753dee0148566c5501baa9a34'
                 });
                 signUpUser.save().then(function(model) {
                     signInPost(req, res, next);
@@ -109,6 +124,7 @@ var profile = function (req, res, next) {
 
         if (user !== undefined) {
             user = user.toJSON();
+            user.referralUrl = 'http://' + req.headers.host + '/signup?ref=' + user.referral;
         }
 
         res.render('profile', {title: 'Profile', user: user});
@@ -130,7 +146,6 @@ var googleAuth = function(req, res, next){
 var googleCallback = function (req, res, next) {
     passport.authenticate('google', { failureRedirect: '/siginin' })(req, res, function(err, user){
         console.log(err);
-        console.log(user);
         res.redirect('/');
     });
 };
@@ -144,7 +159,6 @@ var facebookCallback = function (req, res, next) {
         successRedirect: '/',
         failureRedirect: '/signin' })(req, res, function(err, user){
             console.log(err);
-            console.log(user);
         })
 };
 

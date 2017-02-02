@@ -1,15 +1,18 @@
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `full_name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `full_name` varchar(64) DEFAULT NULL,
+  `email` varchar(64) NOT NULL,
   `referral` varchar(255) NOT NULL UNIQUE,
   `referred` varchar(255) NOT NULL,
+  `facebook_id` varchar(32) DEFAULT NULL,
+  `google_id` varchar(32) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
 PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 DROP TABLE IF EXISTS `currency_rate`;
 CREATE TABLE `currency_rate` (
