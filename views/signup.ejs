@@ -2,31 +2,68 @@
 
 <h1><%= title %></h1>
 
-<form id="user-signup-form" method="post" action="/signup">
+<form id="user-signup-form" method="post" action="/signup" class="form-horizontal form-signup">
 
     <% if(typeof(errorMessage) !== 'undefined') {%>
         <span><%= errorMessage %></span><br>
     <% } %>
 
-    <label>Full Name</label>
-    <input type="text" name="full_name" required><br>
+    <% if(typeof(ref) !== 'undefined') { var ref = '' } %>
+    <div class="form-group">
+        <label class="control-label col-sm-3 required">Referrer</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
+                <input class="form-control" id="referred" value="<%= ref %>" type="text" name="referred" required />
+            </div>
+        </div>
+    </div>
 
-    <label>Username</label>
-    <input type="text" name="username" required><br>
+    <div class="form-group">
+        <label class="control-label col-sm-3 required">Full Name</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-address-card-o" aria-hidden="true"></i></span>
+                <input class="form-control" id="full_name" value="" type="text" name="full_name" required />
+            </div>
+        </div>
+    </div>
 
-    <label>E-Mail</label>
-    <input type="email" name="email" required><br>
+    <div class="form-group">
+        <label class="control-label col-sm-3 required">Username</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                <input class="form-control" id="username" value="" type="text" name="username" required />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3 required">E-Mail</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
+                <input class="form-control" id="email" value="" type="text" name="email" required />
+            </div>
+        </div>
+    </div>
 
-    <label>Password</label>
-    <input type="password" name="password" required><br>
+    <div class="form-group">
+        <label class="control-label col-sm-3 required">Password</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+                <input class="form-control" id="password" value="" type="text" name="password" required />
+            </div>
+        </div>
+    </div>
 
-    <br>
-
-    <a id="user-signup" href="javascript: void(0)">Register</a>
-    <a href="/signin">Login</a>
-
-    <a href="/auth/google">Login with Google</a>
-    <a href="/auth/facebook">Login with Facebook</a>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <a id="user-signup" href="javascript: void(0)" class="btn btn-info">Register</a>
+            <a href="/signin" class="btn btn-success">Login</a>
+        </div>
+    </div>
 
 </form>
 

@@ -13,6 +13,7 @@ var GoogleStrategy      = require('passport-google-oauth').OAuth2Strategy;
 var FacebookStrategy    = require('passport-facebook').Strategy;
 var debug               = require('debug')('app');
 
+
 var route = require('./routes/route');
 var Model = require('./models/model');
 

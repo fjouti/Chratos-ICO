@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /images/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /uploads/
+Disallow: /payment/

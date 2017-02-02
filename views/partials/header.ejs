@@ -1,32 +1,63 @@
+<!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= title %></title>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-3.3.7.min.css">
     <link rel="stylesheet" href="/css/main.css">
-
-    <script src="/js/jquery-3.1.1.min.js"></script>
-    <script src="/js/main.js"></script>
-
+    <% if(typeof(metaDescription) !== 'undefined') {%>
+    <meta name="description" content="<% metaDescription %>" />
+    <% } %>
+    <% if(typeof(metaKeywords) !== 'undefined') {%>
+    <meta name="keywords" content="<% metaKeywords %>" />
+    <% } %>
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-
-    <header>
-        <nav>
-            <ul>
-                <% if(typeof(user) !== 'undefined') {%>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/signout">Logout</a></li>
-                <% } else { %>
-                    <li><a href="/signin">Login</a> / <a href="/signup">Register</a></li>
+<div id="wrap">
+    <nav class="navbar navbar-default navbar-fixed-top" role='navigation'>
+        <div class="container">
+            <div class="navbar-header  col-sm-9  col-lg-3">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <% if(typeof(project) !== 'undefined') {%>
+                <a class="navbar-brand visible-xs-block visible-sm-block visible-md-block" href="http://<% project.site %>" title="<% project.name %>"><% project.name %> </a>
+                <a class="navbar-brand visible-lg-block" href="http://<% project.site %>" title="<% project.name %>"><% project.name %></a>
                 <% } %>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <% if(typeof(user) !== 'undefined') {%>
+                <ul class="nav navbar-nav navbar-right visible-lg-inline">
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile"><%= user.username %></a></li>
+                <li><a href="/signout">Logout</a></li>
+                </ul>
+                <% } else { %>
+                <div class="navbar-form navbar-right ">
+                    <a href="/signin" class="btn btn-default">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        Login
+                    </a>
+                    <a href="/signup" class="btn btn-success">
+                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                        Register
+                    </a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+        <section class="container body">
