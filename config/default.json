@@ -15,5 +15,8 @@
     "clientSecret": "964c4987be7b379d635627cc41ae2ff4",
     "callbackURL": "http://localhost:3000/auth/facebook/callback",
     "profileFields": ["id", "name", "picture", "emails"]
+  },
+  "bitcoin": {
+    "walletURL" : ""
   }
 }

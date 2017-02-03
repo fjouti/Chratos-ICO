@@ -16,6 +16,7 @@ var debug               = require('debug')('app');
 var route = require('./routes/route');
 var Model = require('./models/model');
 var funcs = require('./functions');
+var bitcoin = require("./middleware/bitcoin")
 
 var app = express();
 
@@ -125,10 +126,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(new bitcoin(config.get('bitcoin')))
 
 //Routes
-
 app.get('/', route.index);
 app.post('/', route.indexPost);
 
