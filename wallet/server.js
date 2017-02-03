@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const spawn = require("child_process").spawn;
 
+app.get("/", function(req, res, next){
+	res.send("OK")
+})
+
 app.get('/balance/:wallet', function (req, res, next) {
 	res.send(req.params)
 	spawn("bitcoin-cli ", [`getbalanceget ${req.params.wallet}`])
