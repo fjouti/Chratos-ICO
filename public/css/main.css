@@ -134,6 +134,10 @@ footer .navbar-nav > li > a {
     display: block !important;
 }
 
+.input-group-addon .fa {
+    width: 16px;
+}
+
 
 @media (max-width: 520px) {
     .hidden-xxs {

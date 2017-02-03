@@ -5,7 +5,7 @@ var validator   = require('validator');
 var debug       = require('debug')('route');
 
 var Model       = require('../models/model');
-var funcs       = require('../functions');
+var func        = require('../functions');
 
 var index = function (req, res, next) {
     if (!req.isAuthenticated()) {
@@ -66,6 +66,7 @@ var signUp = function (req, res, next) {
         res.redirect('/');
     } else {
         if(req.query.ref !== undefined) {
+            req.session.ref = req.query.ref ? req.query.ref : config.get('rootReferred').ref;
             new Model.User({referral: req.query.ref})
                 .fetch()
                 .then(function(data){
@@ -83,7 +84,6 @@ var signUp = function (req, res, next) {
 
 var signUpPost = function (req, res, next) {
     var user = req.body;
-
     if (!user.full_name || !user.username || !user.email || !user.password) {
         res.render('signup', {title: 'signup', errorMessage: 'Please, fill in all fields'});
         return;
@@ -106,8 +106,8 @@ var signUpPost = function (req, res, next) {
                     password    : hash,
                     full_name   : user.full_name,
                     email       : user.email,
-                    referral    : funcs.generateRefHash(),
-                    referred    : user.referred ? user.referred : '2529c6e753dee0148566c5501baa9a34'
+                    referral    : func.generateRefHash(),
+                    referred    : user.referred ? user.referred : config.get('rootReferred').ref
                 });
                 signUpUser.save().then(function(model) {
                     signInPost(req, res, next);
@@ -145,7 +145,7 @@ var googleAuth = function(req, res, next){
 
 var googleCallback = function (req, res, next) {
     passport.authenticate('google', { failureRedirect: '/siginin' })(req, res, function(err, user){
-        console.log(err);
+        //console.log(err);
         res.redirect('/');
     });
 };
@@ -158,7 +158,7 @@ var facebookCallback = function (req, res, next) {
     passport.authenticate('facebook', {
         successRedirect: '/',
         failureRedirect: '/signin' })(req, res, function(err, user){
-            console.log(err);
+            //console.log(err);
         })
 };
 
