@@ -20,5 +20,8 @@
   },
   "rootReferred": {
     "ref": "2529c6e753dee0148566c5501baa9a34"
+  },
+  "bitcoin": {
+    "walletURL" : ""
   }
 }
