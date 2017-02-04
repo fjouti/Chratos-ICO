@@ -37,6 +37,18 @@ app.get("addresses", function(req, res, next){
 	});
 })
 
+app.post('/create/:account', function (req, res, next) {
+	var proc = spawn("bitcoin-cli", ["getnewaddress", req.params.account])
+
+	proc.stdout.on('data', function(data){
+	    res.send(data.toString().trim())
+	});
+
+	proc.stderr.on('data', function(data){
+   		res.send(500, data.toString())
+	});
+});
+
 app.post('/create', function (req, res, next) {
 	var proc = spawn("bitcoin-cli", ["getnewaddress"])
 
