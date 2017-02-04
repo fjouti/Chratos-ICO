@@ -1,5 +1,6 @@
 const request = require("request");
 
+
 module.exports = function(config) {
 	var self = this;
 	return function(req, res, next) {
@@ -10,12 +11,12 @@ module.exports = function(config) {
 			})
 		}
 
-		self.createWallet = function(allDone){
-			request.post(config.walletURL + "/create", {}, function(err, response, body){
-				allDone(err, body)
-			})
-		}
-		req.bitcoin = self;
-		next();
-	}
+        self.createWallet = function (allDone) {
+            request.post(config.walletURL + "/create", {}, function (err, response, body) {
+                allDone(err, body);
+            });
+        };
+        req.bitcoin = self;
+        next();
+    }
 }

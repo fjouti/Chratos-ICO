@@ -13,10 +13,10 @@ var GoogleStrategy      = require('passport-google-oauth').OAuth2Strategy;
 var FacebookStrategy    = require('passport-facebook').Strategy;
 var debug               = require('debug')('app');
 
-var route = require('./routes/route');
-var Model = require('./models/model');
-var funcs = require('./functions');
-var bitcoin = require("./middleware/bitcoin")
+var route   = require('./routes/route');
+var Model   = require('./models/model');
+var func    = require('./functions');
+var bitcoin = require('./middleware/bitcoin');
 
 var app = express();
 
@@ -41,8 +41,7 @@ passport.use(new LocalStrategy(
 ));
 
 passport.use(new GoogleStrategy( config.get('googleStrategy'),
-    function(accessToken, refreshToken, profile, done) {
-
+    function(req, accessToken, refreshToken, profile, done) {
         new Model.User({google_id: profile.id})
             .fetch()
             .then(function (data) {
@@ -54,8 +53,8 @@ passport.use(new GoogleStrategy( config.get('googleStrategy'),
                         email       : profile._json.emails[0].value,
                         full_name   : profile._json.displayName,
                         username    : 'g_' + profile.id,
-                        referred    : '2529c6e753dee0148566c5501baa9a34',
-                        referral    : funcs.generateRefHash()
+                        referred    : req.session.ref,
+                        referral    : func.generateRefHash()
                     })
                         .save()
                         .then(function(data){
@@ -71,7 +70,7 @@ passport.use(new GoogleStrategy( config.get('googleStrategy'),
 ));
 
 passport.use(new FacebookStrategy( config.get('facebookStrategy'),
-    function(accessToken, refreshToken, profile, done) {
+    function(req, accessToken, refreshToken, profile, done) {
         new Model.User({facebook_id: profile.id})
             .fetch()
             .then(function (data) {
@@ -83,8 +82,8 @@ passport.use(new FacebookStrategy( config.get('facebookStrategy'),
                         email       : profile._json.email,
                         full_name   : profile._json.first_name + ' ' + profile._json.last_name,
                         username    : 'fb_' + profile.id,
-                        referred    : '2529c6e753dee0148566c5501baa9a34',
-                        referral    : funcs.generateRefHash()
+                        referred    : req.session.ref,
+                        referral    : func.generateRefHash()
                     })
                         .save()
                         .then(function(data){
@@ -126,9 +125,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(new bitcoin(config.get('bitcoin')))
+app.use(new bitcoin(config.get('bitcoin')));
+
 
 //Routes
+
 app.get('/', route.index);
 app.post('/', route.indexPost);
 
