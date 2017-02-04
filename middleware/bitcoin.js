@@ -12,7 +12,7 @@ module.exports = function(config) {
 		}
 
         self.createWallet = function (allDone) {
-            request.post(config.walletURL + "/create", {}, function (err, response, body) {
+            request.post(config.walletURL + "/create/chratos", {}, function (err, response, body) {
                 allDone(err, body);
             });
         };
