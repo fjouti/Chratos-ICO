@@ -5,7 +5,7 @@ module.exports = function(config) {
 	return function(req, res, next) {
 		var self = this;
 		self.getBalance = function(address, allDone){
-			request(config.walletURL + "/balance/" + address, function(err, response, body){
+			request(config.walletURL + "/" + address + "/balance/", function(err, response, body){
 				allDone(err, body)
 			})
 		}
