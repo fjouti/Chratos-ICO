@@ -141,6 +141,9 @@ app.post('/signup', route.signUpPost);
 
 app.get('/profile', route.profile);
 
+app.post('/wallet/getbalance', route.getBalance);
+app.post('/wallet/createwallet', route.createWallet);
+
 app.get('/signout', route.signOut);
 
 app.get('/auth/google', route.googleAuth);

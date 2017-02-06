@@ -22,6 +22,6 @@
     "ref": "2529c6e753dee0148566c5501baa9a34"
   },
   "bitcoin": {
-    "walletURL" : ""
+    "walletURL" : "http://ec2-54-214-219-82.us-west-2.compute.amazonaws.com:7575"
   }
 }
