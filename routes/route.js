@@ -1,17 +1,16 @@
-var passport    = require('passport');
-var bcrypt      = require('bcrypt-nodejs');
-var config      = require('config');
-var validator   = require('validator');
-var debug       = require('debug')('route');
+var passport = require('passport');
+var bcrypt = require('bcrypt-nodejs');
+var config = require('config');
+var validator = require('validator');
+var debug = require('debug')('route');
 
-var Model       = require('../models/model');
-var func        = require('../functions');
+var Model = require('../models/model');
+var func = require('../functions');
 
 var index = function (req, res, next) {
     if (!req.isAuthenticated()) {
         res.render('index', {title: 'Homepage'});
     } else {
-
         var user = req.user;
 
         if (user !== undefined) {
@@ -25,9 +24,8 @@ var index = function (req, res, next) {
 
 var indexPost = function (req, res, next) {
     if (!req.isAuthenticated()) {
-        res.json({"status":"ERROR", "msg":"You are not authorized."});
+        res.json({"status": "ERROR", "msg": "You are not authorized."});
     } else {
-
         var user = req.user;
 
         if (user !== undefined) {
@@ -65,12 +63,12 @@ var signUp = function (req, res, next) {
     if (req.isAuthenticated()) {
         res.redirect('/');
     } else {
-        if(req.query.ref !== undefined) {
+        if (req.query.ref !== undefined) {
             req.session.ref = req.query.ref ? req.query.ref : config.get('rootReferred').ref;
             new Model.User({referral: req.query.ref})
                 .fetch()
-                .then(function(data){
-                    if(data){
+                .then(function (data) {
+                    if (data) {
                         res.render('signup', {title: 'Sign Up', ref: req.query.ref});
                     } else {
                         res.render('signup', {title: 'Sign Up', errorMessage: 'Incorrect Referral.'});
@@ -94,7 +92,7 @@ var signUpPost = function (req, res, next) {
 
     new Model.User({username: user.username})
         .fetch()
-        .then(function(model) {
+        .then(function (model) {
             if (model) {
                 res.render('signup', {title: 'signup', errorMessage: 'Username already exists'});
             } else {
@@ -102,18 +100,18 @@ var signUpPost = function (req, res, next) {
                 var hash = bcrypt.hashSync(password);
 
                 var signUpUser = new Model.User({
-                    username    : user.username,
-                    password    : hash,
-                    full_name   : user.full_name,
-                    email       : user.email,
-                    referral    : func.generateRefHash(),
-                    referred    : user.referred ? user.referred : config.get('rootReferred').ref
+                    username: user.username,
+                    password: hash,
+                    full_name: user.full_name,
+                    email: user.email,
+                    referral: func.generateRefHash(),
+                    referred: user.referred ? user.referred : config.get('rootReferred').ref
                 });
-                signUpUser.save().then(function(model) {
+                signUpUser.save().then(function (model) {
                     signInPost(req, res, next);
                 });
             }
-    });
+        });
 };
 
 var profile = function (req, res, next) {
@@ -131,6 +129,69 @@ var profile = function (req, res, next) {
     }
 };
 
+var getBalance = function (req, res, next) {
+    if (!req.isAuthenticated()) {
+        res.send({status: 'err', statusMsg: 'access denied'});
+    } else {
+        var user = req.user;
+
+        if (user !== undefined) {
+            user = user.toJSON();
+
+            new Model.User({ID: user.ID})
+                .fetch()
+                .then(function(data) {
+                    if(data) {
+                        data = data.toJSON();
+
+                        console.log(data.wallet);
+
+                        if(data.wallet != null) {
+                            req.bitcoin.getBalance(data.wallet, function (err, balance) {
+                                console.log(err);
+                                console.log(balance);
+                                res.send({status: 'success', statusMsg: balance});
+                            })
+                        }
+
+                    }
+                });
+        }
+    }
+};
+
+var createWallet = function (req, res, next) {
+    if (!req.isAuthenticated()) {
+        res.send('access denied');
+    } else {
+        var user = req.user;
+
+        if (user !== undefined) {
+            user = user.toJSON();
+
+            req.bitcoin.createWallet(function (err, wallet) {
+                console.log(err);
+                console.log(wallet);
+
+                if (!err) {
+                    new Model.User({ID: user.ID})
+                        .save({
+                            wallet: wallet
+                        }, {patch: true})
+                        .then(function (data) {
+                            if (data) {
+                                res.send({status: 'success', statusMsg: wallet});
+                            }
+                        });
+                } else {
+                    res.send(err);
+                }
+            })
+
+        }
+    }
+};
+
 var signOut = function (req, res, next) {
     if (req.isAuthenticated()) {
         req.logout();
@@ -139,27 +200,28 @@ var signOut = function (req, res, next) {
     res.redirect('/signin');
 };
 
-var googleAuth = function(req, res, next){
-    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email'] })(req, res, next);
+var googleAuth = function (req, res, next) {
+    passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email']})(req, res, next);
 };
 
 var googleCallback = function (req, res, next) {
-    passport.authenticate('google', { failureRedirect: '/siginin' })(req, res, function(err, user){
+    passport.authenticate('google', {failureRedirect: '/siginin'})(req, res, function (err, user) {
         //console.log(err);
         res.redirect('/');
     });
 };
 
-var facebookAuth = function(req, res, next){
-    passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_friends'] })(req, res, next);
+var facebookAuth = function (req, res, next) {
+    passport.authenticate('facebook', {scope: ['public_profile', 'email', 'user_friends']})(req, res, next);
 };
 
 var facebookCallback = function (req, res, next) {
     passport.authenticate('facebook', {
         successRedirect: '/',
-        failureRedirect: '/signin' })(req, res, function(err, user){
-            //console.log(err);
-        })
+        failureRedirect: '/signin'
+    })(req, res, function (err, user) {
+        //console.log(err);
+    })
 };
 
 var notFound404 = function (req, res, next) {
@@ -183,6 +245,9 @@ module.exports.signUp = signUp;
 module.exports.signUpPost = signUpPost;
 
 module.exports.profile = profile;
+
+module.exports.getBalance = getBalance;
+module.exports.createWallet = createWallet;
 
 module.exports.signOut = signOut;
 
