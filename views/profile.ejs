@@ -1,80 +1,177 @@
-<% include ./partials/header %>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/finance.css">
+    <link rel="stylesheet" href="styles/hover.css">
+    <link rel="stylesheet" href="libs/OwlCarousel2-2.2.0/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
 
-<h1><%= title %></h1>
+<header class="site-header">
+    <div class="cont">
+        <div class="left-block">
+            <div class="logo-block">
+                <a href="#"><img src="images/site-logo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="right-block">
+            <div class="burger-block">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">Username</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                    <input class="form-control" id="username" value="<%= user.username %>" type="text" readonly="readonly" />
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">Full Name</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa address-card-o" aria-hidden="true"></i></span>
-                    <input class="form-control" id="full_name" type="text" value="<%= user.full_name %>" required />
-                </div>
-            </div>
-        </div>
+    <div class="site-menu">
+        <ul>
+            <li class="active"><a href="#">about</a></li>
+            <li><a href="#">faq</a></li>
+            <li><a href="#">support</a></li>
 
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">E-Mail</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-                    <input class="form-control" id="email" value="<%= user.email %>" type="text" name="email" required />
-                </div>
+            <div class="close-burger">
+                <span></span>
+                <span></span>
+            </div>
+        </ul>
+    </div>
+</header>
+
+<div class="site-content">
+
+    <div class="profile-page">
+        <div class="top-title-block">
+            <div class="cont">
+                <h2>my profile</h2>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">Referred</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                    <input class="form-control" value="<%= user.referred %>" type="text" readonly="readonly" />
+        <div class="cont">
+            <div class="left-block">
+                <div class="image-block">
+                    <img src="images/profile-image.png" alt="">
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">Referral URL</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-external-link" aria-hidden="true"></i></span>
-                    <input class="form-control" value="<%= user.referralUrl %>" type="text" readonly="readonly" />
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">Wallet</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-btc" aria-hidden="true"></i></span>
-                    <input class="form-control" id="wallet" value="<%= user.wallet %>" type="text" readonly="readonly" />
-                    <span class="input-group-btn">
-                        <button id="create-wallet" class="btn btn-default" type="button">Update</button>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3 required">Balance</label>
-            <div class="col-sm-9">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-money" aria-hidden="true"></i></span>
-                    <input class="form-control" id="balance" value="" type="text" readonly="readonly" />
-                    <span class="input-group-btn">
-                        <button id="get-balance" class="btn btn-default" type="button">Update</button>
-                    </span>
-                </div>
+
+            <div class="right-block">
+                <h2>Adrian Stancu</h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span><img src="images/user-icon.png" alt=""></span>
+                            <p>adrian.stancu</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span><img src="images/mail-icon.jpg" alt=""></span>
+                            <p>adrian.stancu518@gmail.com</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span><img src="images/ban-icon.png" alt=""></span>
+                            <p>2558e58de687ess558aa789</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span><img src="images/link-icon.jpg" alt=""></span>
+                            <p>https://monosnap.com/file/DL88OlObk51rzfhT1gmHbOv9QZN0E7</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span><i class="fa fa-btc" aria-hidden="true"></i></span>
+                            <p>10</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span><img src="images/link-icon.jpg" alt=""></span>
+                            <p>https://monosnap.com/file/DL88OlObk51rzfhT1gmHbOv9QZN0E7</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-<% include ./partials/footer %>
+<footer class="site-footer">
+    <div class="cont">
+        <div class="left-block">
+            <div class="logo-block">
+                <a href="#"><img src="images/site-logo.png" alt=""></a>
+            </div>
+            <h2>financial company</h2>
+        </div>
+
+        <div class="right-block">
+            <div class="block">
+                <h2>resources</h2>
+                <div class="info-block">
+                    <ul>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">faq</a></li>
+                        <li><a href="#">support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <h2>address</h2>
+                <div class="info-block">
+                    <p>Suite 303
+                        61 Marlborough Street
+                        Surry Hills  NSW 2010</p>
+                </div>
+
+            </div>
+
+            <div class="block">
+                <h2>contact</h2>
+                <div class="info-block">
+                    <h3>info@yellcreative.com</h3>
+                    <h4>+61 2 9310 1444</h4>
+
+                    <ul class="soc-block">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <h2>contact</h2>
+                <div class="info-block">
+                    <input type="text" placeholder="your email">
+                    <button>subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="libs/OwlCarousel2-2.2.0/dist/owl.carousel.min.js"></script>
+<script src="js/init.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js'></script>
+<script src="js/canvas.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

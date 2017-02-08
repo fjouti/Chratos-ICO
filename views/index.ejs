@@ -7,142 +7,204 @@
     <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/finance.css">
     <link rel="stylesheet" href="styles/hover.css">
+    <link rel="stylesheet" href="libs/OwlCarousel2-2.2.0/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 
 <header class="site-header">
-   <div class="cont">
-       <div class="left-block">
-           <div class="logo-block">
-               <img src="images/site-logo.png" alt="">
-           </div>
-       </div>
-       <div class="right-block">
-           <div class="burger-block">
-               <span></span>
-               <span></span>
-               <span></span>
-           </div>
-       </div>
-   </div>
+    <div class="cont">
+        <div class="left-block">
+            <div class="logo-block">
+                <a href="#"><img src="images/site-logo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="right-block">
+            <div class="burger-block">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-menu">
+        <ul>
+            <li class="active"><a href="#">about</a></li>
+            <li><a href="#">faq</a></li>
+            <li><a href="#">support</a></li>
+
+            <div class="close-burger">
+                <span></span>
+                <span></span>
+            </div>
+        </ul>
+    </div>
 </header>
 
 <div class="site-content">
-    <div class="top-baner-block">
-        <div class="cont">
-            <div class="middle">
-                <h2>financial marketing
-                    experts</h2>
-
-                <div class="butt-block">
-                    <button>log In</button>
-                    <button>registration</button>
-                </div>
-            </div>
-
-            <div class="menu-block">
-                <div class="left-block">
-                    <ul>
-                        <li><a href="#">about</a></li>
-                        <li><a href="#">faq</a></li>
-                        <li><a href="#">support</a></li>
-                    </ul>
-                </div>
-                
-                <div class="right-block">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="what-we-do">
-        <div class="top-title-block">
+    <div class="home-page">
+        <div class="top-baner-block">
+            <canvas></canvas>
             <div class="cont">
-                <h2>what we do</h2>
+                <div class="middle">
+                    <h2>financial marketing
+                        experts</h2>
+
+                    <div class="butt-block">
+                        <button>log In</button>
+                        <button>registration</button>
+                    </div>
+                </div>
+
+                <div class="menu-block">
+                    <div class="left-block">
+                        <ul>
+                            <li><a href="#">about</a></li>
+                            <li><a href="#">faq</a></li>
+                            <li><a href="#">support</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="right-block">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="what-we-do-content">
+        <div class="what-we-do">
+            <div class="top-title-block">
+                <div class="cont">
+                    <h2>what we do</h2>
+                </div>
+            </div>
+
+            <div class="what-we-do-content">
+                <div class="cont">
+                    <div class="block">
+                        <a href="#">
+                            <div class="block-content">
+                                <div class="image-block">
+                                    <img src="images/icons/time.svg" alt="">
+                                </div>
+
+                                <div class="text-block">
+                                    <h2>superannuation</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="block">
+                        <a href="#">
+                            <div class="block-content">
+                                <div class="image-block">
+                                    <img src="images/icons/compass.svg" alt="">
+                                </div>
+
+                                <div class="text-block">
+                                    <h2>banks & credit unions</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="block">
+                        <a href="#">
+                            <div class="block-content">
+                                <div class="image-block">
+                                    <img src="images/icons/umbrella.svg" alt="">
+                                </div>
+
+                                <div class="text-block">
+                                    <h2>insurance</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="block">
+                        <a href="#">
+                            <div class="block-content">
+                                <div class="image-block">
+                                    <img src="images/icons/wallet.svg" alt="">
+                                </div>
+
+                                <div class="text-block">
+                                    <h2>wealth management</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="talk-to-us">
             <div class="cont">
-                <div class="block">
-                    <a href="#">
-                        <div class="block-content">
-                            <div class="image-block">
-                                <img src="images/icons/time.svg" alt="">
-                            </div>
-
-                            <div class="text-block">
-                                <h2>superannuation</h2>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="block">
-                    <a href="#">
-                        <div class="block-content">
-                            <div class="image-block">
-                                <img src="images/icons/compass.svg" alt="">
-                            </div>
-
-                            <div class="text-block">
-                                <h2>banks & credit unions</h2>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="block">
-                    <a href="#">
-                        <div class="block-content">
-                            <div class="image-block">
-                                <img src="images/icons/umbrella.svg" alt="">
-                            </div>
-
-                            <div class="text-block">
-                                <h2>insurance</h2>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="block">
-                    <a href="#">
-                        <div class="block-content">
-                            <div class="image-block">
-                                <img src="images/icons/wallet.svg" alt="">
-                            </div>
-
-                            <div class="text-block">
-                                <h2>wealth management</h2>
-                            </div>
-                        </div>
-                    </a>
+                <div class="middle">
+                    <h2>we can help you have better conversations with your customers</h2>
+                    <button>talk to us </button>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="talk-to-us">
-        <div class="cont">
-            <div class="middle">
-                <h2>we can help you have better conversations with your customers</h2>
-               <button>talk to us </button>
+        <div class="partners-block">
+            <div class="cont">
+
+
+                <div class="owl-carousel owl-theme carousel2">
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/1.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/2.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/2.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/4.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/5.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/6.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider-list">
+                            <img src="images/7.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="partners-block">
-        <div class="cont">
-
         </div>
     </div>
 </div>
@@ -151,8 +213,9 @@
     <div class="cont">
         <div class="left-block">
             <div class="logo-block">
-                <img src="images/site-logo.png" alt="">
+                <a href="#"><img src="images/site-logo.png" alt=""></a>
             </div>
+            <h2>financial company</h2>
         </div>
 
         <div class="right-block">
@@ -205,7 +268,11 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="libs/OwlCarousel2-2.2.0/dist/owl.carousel.min.js"></script>
 <script src="js/init.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js'></script>
+<script src="js/canvas.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
