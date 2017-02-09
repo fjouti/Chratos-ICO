@@ -9,7 +9,22 @@ var func = require('../functions');
 
 var index = function (req, res, next) {
     if (!req.isAuthenticated()) {
-        res.render('index', {title: 'Homepage'});
+
+        if (req.query.ref !== undefined) {
+            req.session.ref = req.query.ref ? req.query.ref : config.get('rootReferred').ref;
+            new Model.User({referral: req.query.ref})
+                .fetch()
+                .then(function (data) {
+                    if (data) {
+                        res.render('index', {title: 'Sign Up', ref: req.query.ref});
+                    } else {
+                        res.render('index', {title: 'Sign Up', errorMessage: 'Incorrect Referral.'});
+                    }
+                })
+        } else {
+            res.render('index', {title: 'Home'});
+        }
+
     } else {
         var user = req.user;
 
@@ -19,39 +34,19 @@ var index = function (req, res, next) {
 
         res.render('index', {title: 'Homepage', user: user});
     }
-
-};
-
-var indexPost = function (req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.json({"status": "ERROR", "msg": "You are not authorized."});
-    } else {
-        var user = req.user;
-
-        if (user !== undefined) {
-            user = user.toJSON();
-        }
-    }
-};
-
-var signIn = function (req, res, next) {
-    if (req.isAuthenticated())
-        res.redirect('/');
-
-    res.render('signin', {title: 'Sign In'});
 };
 
 var signInPost = function (req, res, next) {
-    passport.authenticate('local', {successRedirect: '/', failureRedirect: '/signin'}, function (err, user, info) {
+    passport.authenticate('local', {successRedirect: '/profile', failureRedirect: '/'}, function (err, user, info) {
         if (err) {
-            return res.render('signin', {title: 'Sign In', errorMessage: err.message});
+            return res.render('index', {title: 'Home', errorMessage: err.message});
         }
         if (!user) {
-            return res.render('signin', {title: 'Sign In', errorMessage: info.message});
+            return res.render('index', {title: 'Home', errorMessage: info.message});
         }
         return req.logIn(user, function (err) {
             if (err) {
-                return res.render('signin', {title: 'Sign In', errorMessage: err.message});
+                return res.render('index', {title: 'Home', errorMessage: err.message});
             } else {
                 return res.redirect('/');
             }
@@ -59,34 +54,13 @@ var signInPost = function (req, res, next) {
     })(req, res, next);
 };
 
-var signUp = function (req, res, next) {
-    if (req.isAuthenticated()) {
-        res.redirect('/');
-    } else {
-        if (req.query.ref !== undefined) {
-            req.session.ref = req.query.ref ? req.query.ref : config.get('rootReferred').ref;
-            new Model.User({referral: req.query.ref})
-                .fetch()
-                .then(function (data) {
-                    if (data) {
-                        res.render('signup', {title: 'Sign Up', ref: req.query.ref});
-                    } else {
-                        res.render('signup', {title: 'Sign Up', errorMessage: 'Incorrect Referral.'});
-                    }
-                })
-        } else {
-            res.render('signup', {title: 'Sign Up'});
-        }
-    }
-};
-
 var signUpPost = function (req, res, next) {
     var user = req.body;
     if (!user.full_name || !user.username || !user.email || !user.password) {
-        res.render('signup', {title: 'signup', errorMessage: 'Please, fill in all fields'});
+        res.render('index', {title: 'Home', errorMessage: 'Please, fill in all fields'});
         return;
     } else if (!validator.isEmail(user.email)) {
-        res.render('signup', {title: 'signup', errorMessage: 'Please, enter a valid E-Mail address'});
+        res.render('index', {title: 'Home', errorMessage: 'Please, enter a valid E-Mail address'});
         return;
     }
 
@@ -94,7 +68,7 @@ var signUpPost = function (req, res, next) {
         .fetch()
         .then(function (model) {
             if (model) {
-                res.render('signup', {title: 'signup', errorMessage: 'Username already exists'});
+                res.render('index', {title: 'Home', errorMessage: 'Username already exists'});
             } else {
                 var password = user.password;
                 var hash = bcrypt.hashSync(password);
@@ -116,13 +90,13 @@ var signUpPost = function (req, res, next) {
 
 var profile = function (req, res, next) {
     if (!req.isAuthenticated()) {
-        res.redirect('/signin');
+        res.redirect('/');
     } else {
         var user = req.user;
 
         if (user !== undefined) {
             user = user.toJSON();
-            user.referralUrl = 'http://' + req.headers.host + '/signup?ref=' + user.referral;
+            user.referralUrl = 'http://' + req.headers.host + '/?ref=' + user.referral;
         }
 
         res.render('profile', {title: 'Profile', user: user});
@@ -197,7 +171,7 @@ var signOut = function (req, res, next) {
         req.logout();
     }
 
-    res.redirect('/signin');
+    res.redirect('/');
 };
 
 var googleAuth = function (req, res, next) {
@@ -205,9 +179,9 @@ var googleAuth = function (req, res, next) {
 };
 
 var googleCallback = function (req, res, next) {
-    passport.authenticate('google', {failureRedirect: '/siginin'})(req, res, function (err, user) {
+    passport.authenticate('google', {failureRedirect: '/'})(req, res, function (err, user) {
         //console.log(err);
-        res.redirect('/');
+        res.redirect('/profile');
     });
 };
 
@@ -217,8 +191,8 @@ var facebookAuth = function (req, res, next) {
 
 var facebookCallback = function (req, res, next) {
     passport.authenticate('facebook', {
-        successRedirect: '/',
-        failureRedirect: '/signin'
+        successRedirect: '/profile',
+        failureRedirect: '/'
     })(req, res, function (err, user) {
         //console.log(err);
     })
@@ -236,12 +210,9 @@ var notFound404 = function (req, res, next) {
 };
 
 module.exports.index = index;
-module.exports.indexPost = indexPost;
 
-module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;
 
-module.exports.signUp = signUp;
 module.exports.signUpPost = signUpPost;
 
 module.exports.profile = profile;

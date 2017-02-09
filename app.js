@@ -131,12 +131,9 @@ app.use(new bitcoin(config.get('bitcoin')));
 //Routes
 
 app.get('/', route.index);
-app.post('/', route.indexPost);
 
-app.get('/signin', route.signIn);
 app.post('/signin', route.signInPost);
 
-app.get('/signup', route.signUp);
 app.post('/signup', route.signUpPost);
 
 app.get('/profile', route.profile);

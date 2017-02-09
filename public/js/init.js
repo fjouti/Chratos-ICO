@@ -28,11 +28,11 @@ $(document).ready(function () {
             },
             1711: {
                 items: 7
-            },
+            }
         }
     });
 
-    if ($(".site-content div").hasClass("profile-page")){
+    if ($(".site-content div").hasClass("profile-page") || $(".site-content div").hasClass("error-page")){
         $(".site-header ").css("background-color", "#141414");
     }
 
@@ -43,4 +43,51 @@ $(document).ready(function () {
     $(".close-burger").on("click", function () {
         $(".site-menu").removeClass("show");
     });
+
+    if($(".error-not").length !== 0) {
+        $(".error-not").addClass("show");
+
+        function explode(){
+            $(".error-not").removeClass("show");
+        }
+        setTimeout(explode, 5000);
+    }
+
+    $("#create-wallet").on("click", function() {
+        createWallet();
+        $("#create-wallet").remove();
+    });
+
+    getBalance();
+    $("#get-balance").on("click", function() {
+        getBalance();
+    });
+    setInterval(getBalance, 20000);
+
+    function getBalance() {
+        $.ajax({
+            url: "/wallet/getbalance",
+            type: "post",
+            success: function(data) {
+                console.log(data);
+                if(data.status == "success") {
+                    $("#balance").text(data.statusMsg);
+                }
+            }
+        });
+    }
+
+    var createWallet = function() {
+        $.ajax({
+            url: "/wallet/createwallet",
+            type: "post",
+            success: function(data) {
+                console.log(data);
+                if(data.status = "success") {
+                    $("#wallet").text(data.statusMsg);
+                    getBalance();
+                }
+            }
+        });
+    }
 });
