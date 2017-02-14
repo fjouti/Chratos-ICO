@@ -138,6 +138,10 @@ app.post('/signup', route.signUpPost);
 
 app.get('/profile', route.profile);
 
+app.get('/about', route.about);
+
+app.get('/faq', route.faq);
+
 app.post('/wallet/getbalance', route.getBalance);
 app.post('/wallet/createwallet', route.createWallet);
 

@@ -340,7 +340,7 @@ html, body {
   float: left; }
 .site-header .cont .left-block .logo-block {
   width: 140px;
-  height: 28px;
+  height: 90px;
   overflow: hidden; }
 .site-header .cont .left-block .logo-block a {
   display: block;
@@ -823,6 +823,10 @@ html, body {
   margin: 90px 0 0 0;
   height: 227px;
   background-color: #fce69d; }
+.site-footer .logo-block img {
+  width: 115px;
+  height: auto;
+}
 .site-footer .cont {
   width: 1720px;
   height: 100%;

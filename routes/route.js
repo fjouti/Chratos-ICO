@@ -103,6 +103,15 @@ var profile = function (req, res, next) {
     }
 };
 
+var about = function (req, res, next) {
+    res.render('about', {title: 'About'});
+
+};
+
+var faq = function (req, res, next) {
+    res.render('faq', {title: 'FAQ'});
+};
+
 var getBalance = function (req, res, next) {
     if (!req.isAuthenticated()) {
         res.send({status: 'err', statusMsg: 'access denied'});
@@ -127,7 +136,6 @@ var getBalance = function (req, res, next) {
                                 res.send({status: 'success', statusMsg: balance});
                             })
                         }
-
                     }
                 });
         }
@@ -216,6 +224,10 @@ module.exports.signInPost = signInPost;
 module.exports.signUpPost = signUpPost;
 
 module.exports.profile = profile;
+
+module.exports.about = about;
+
+module.exports.faq = faq;
 
 module.exports.getBalance = getBalance;
 module.exports.createWallet = createWallet;

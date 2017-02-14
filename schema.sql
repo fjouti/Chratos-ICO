@@ -7,6 +7,7 @@ CREATE TABLE `users` (
   `email` varchar(64) NOT NULL,
   `referral` varchar(255) NOT NULL UNIQUE,
   `referred` varchar(255) NOT NULL,
+  `wallet` varchar(255),
   `facebook_id` varchar(32) DEFAULT NULL,
   `google_id` varchar(32) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
