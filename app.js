@@ -1,5 +1,3 @@
-console.log('abc');
-
 var config              = require('config');
 var express             = require('express');
 var bodyParser          = require('body-parser');
