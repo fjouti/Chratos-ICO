@@ -36,13 +36,13 @@ $(document).ready(function () {
     //     $(".site-header ").css("background-color", "#127cc6");
     // }
 
-    $(".site-header .cont .right-block .burger-block").on("click", function () {
-        $(".site-menu").toggleClass("show");
-    });
+    // $(".site-header .cont .right-block .burger-block").on("click", function () {
+    //     $(".site-menu").toggleClass("show");
+    // });
 
-    $(".close-burger").on("click", function () {
-        $(".site-menu").removeClass("show");
-    });
+    // $(".close-burger").on("click", function () {
+    //     $(".site-menu").removeClass("show");
+    // });
 
     if($(".error-not").length !== 0) {
         $(".error-not").addClass("show");
