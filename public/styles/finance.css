@@ -423,14 +423,33 @@ html, body {
   width: 100%;
   left: 0;
   top: 0;
-  padding: 20px 0;
+  padding: 5px 0 20px 0;
   z-index: 99;
   pointer-events: none;
+}
+
+.site-header .header-btn {
+  background: transparent;
+  border-width: 0px;
+  color: #d8e4f1;
+  outline: none;
+}
+.site-header .header-btn:active:focus, .header-btn:active:hover {
+  background-color: transparent;
+  border-color: #d8e4f1;
+  color: #d8e4f1;
+}
+.site-header .slack-btn{
+  border-width: 2px;
+  border-color: #d8e4f1;
 }
 
 .site-header .cont {
   width: 1720px;
   margin: 0 auto;
+  border-bottom-style: double;
+  border-bottom-width: 2px;
+  border-bottom-color: #66a8d7
 }
 
 .site-header .cont:after {
@@ -455,20 +474,17 @@ html, body {
 }
 
 .site-header .cont .left-block .logo-block a img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 60px;
 }
 
 .site-header .cont .right-block {
   pointer-events: auto;
   float: right;
+  line-height: 60px;
 }
 
 .site-header .cont .right-block .burger-block {
-  margin-top: 26px;
-  width: 26px;
-  height: 34px;
-  cursor: pointer;
 }
 
 .site-header .cont .right-block .burger-block span {
@@ -591,7 +607,7 @@ html, body {
 .site-content .home-page .top-baner-block {
   width: 100%;
   position: relative;
-  background-color: #141414;
+  background: linear-gradient(to bottom right, #127cc6, #f9d9c4);
 }
 
 .site-content .home-page .top-baner-block canvas {
