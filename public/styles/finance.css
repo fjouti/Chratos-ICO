@@ -439,7 +439,7 @@ html, body {
   border-color: #d8e4f1;
   color: #d8e4f1;
 }
-.site-header .slack-btn{
+.site-header .register-btn{
   border-width: 2px;
   border-color: #d8e4f1;
 }
@@ -603,7 +603,9 @@ html, body {
   -webkit-transition-duration: 0.3s, 0.3s;
   transition-duration: 0.3s, 0.3s;
 }
-
+.site-content {
+  background-color: #f0f0f0;
+}
 .site-content .home-page .top-baner-block {
   width: 100%;
   position: relative;
@@ -635,9 +637,10 @@ html, body {
 }
 
 .site-content .home-page .top-baner-block .cont .middle {
-  width: 526px;
+  width: 100%;
   display: inline-block;
   vertical-align: middle;
+  margin-top: 20%;
 }
 
 .site-content .home-page .top-baner-block .cont .middle h2 {
@@ -766,13 +769,180 @@ html, body {
   color: #ffffff;
   font-size: 20px;
 }
+/************About US******************/
 
+.site-content .profile-page .top-baner-block {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(to bottom right, #127cc6, #f9d9c4);
+}
+
+.site-content .profile-page .top-baner-block canvas {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.site-content .profile-page .top-baner-block .cont {
+  pointer-events: none;
+  width: 1720px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  vertical-align: middle;
+}
+
+.site-content .profile-page .top-baner-block .cont:after {
+  content: '';
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.site-content .profile-page .top-baner-block .cont .middle {
+  width: 526px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-content .profile-page .top-baner-block .cont .middle h2 {
+  font-size: 53px;
+  line-height: 69px;
+  color: #ffffff;
+  font-family: 'Century Gothic';
+}
+
+.site-content .profile-page .top-baner-block .cont .middle .butt-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.site-content .profile-page .top-baner-block .cont .middle .butt-block button {
+  pointer-events: auto;
+  float: left;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 0;
+  padding: 0;
+}
+
+.site-content .profile-page .top-baner-block .cont .middle .butt-block button:first-child {
+  width: 188px;
+  height: 63px;
+  background-color: #ffc815;
+  color: #141414;
+  margin: 0 18px 0 0;
+  border: 0px solid transparent;
+}
+
+.site-content .profile-page .top-baner-block .cont .middle .butt-block button:last-child {
+  width: 316px;
+  height: 63px;
+  border: 4px solid #ffc815;
+  color: #f3c717;
+  background-color: transparent;
+}
+
+.site-content .profile-page .top-baner-block .cont .modal {
+  pointer-events: auto;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block {
+  pointer-events: auto;
+  float: left;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block ul li {
+  float: left;
+  position: relative;
+  margin: 0 0 0 37px;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block ul li:first-child {
+  margin: 0;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block ul li:first-child a:after {
+  display: none;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block ul li a {
+  display: block;
+  text-decoration: none;
+  font-family: Arial;
+  font-size: 24px;
+  line-height: 24px;
+  color: #f4f4f4;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .left-block ul li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  background-color: #848484;
+  left: -17px;
+  top: 4px;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .right-block {
+  pointer-events: auto;
+  float: right;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .right-block ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .right-block ul li {
+  float: left;
+  margin: 0 0 0 15px;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .right-block ul li:first-child {
+  margin: 0;
+}
+
+.site-content .profile-page .top-baner-block .cont .menu-block .right-block ul li a {
+  color: #ffffff;
+  font-size: 20px;
+}
+/**************************************/
 .site-content .home-page .what-we-do {
   margin: 70px 0 0 0;
 }
 
 .site-content .home-page .what-we-do .top-title-block {
-  background-color: #ffc815;
+  background: -webkit-linear-gradient(left, rgba(18,124,168,0.4), rgba(18,124,168,1)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(18,124,168,0.4), rgba(18,124,168,1)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(18,124,168,0.4), rgba(18,124,168,1)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(18,124,168,0.4), rgba(18,124,168,1)); /* Standard syntax (must be last) */
   height: 32px;
 }
 
@@ -786,7 +956,7 @@ html, body {
   display: inline-block;
   color: #696969;
   font-family: 'Century Gothic';
-  background-color: #ffffff;
+  background-color: #f0f0f0;
   margin: 0;
   line-height: 32px;
 }
@@ -877,7 +1047,7 @@ html, body {
   margin: 0 auto;
   font-size: 40px;
   line-height: 40px;
-  color: #ffc815;
+  color: #5f93c9;
 }
 
 .site-content .home-page .talk-to-us {
@@ -922,14 +1092,15 @@ html, body {
   font-size: 18px;
   width: 198px;
   height: 63px;
-  border: 4px solid #ffc815;
-  color: #f3c717;
-  background-color: transparent;
+  border: 4px solid #127cc6;
+  color: #ffffff;
+  background-color: #127cc6;
   margin: 40px 0 0 0;
 }
 
 .site-content .home-page .partners-block {
   margin: 65px 0 0 0;
+  height: 200px;
 }
 
 .site-content .home-page .partners-block .cont {
@@ -973,9 +1144,9 @@ html, body {
   right: 0px;
 }
 
-.site-content .profile-page {
+/*.site-content .profile-page {
   margin: 190px 0 0 0;
-}
+}*/
 
 .site-content .profile-page .top-title-block {
   background-color: #ffc815;
@@ -1130,9 +1301,9 @@ html, body {
 }
 
 .site-footer {
-  margin: 90px 0 0 0;
+  margin: 0 0 0 0;
   height: 227px;
-  background-color: #fce69d; }
+  background-color: #000; }
 .site-footer .logo-block img {
   width: 115px;
   height: auto;
@@ -1195,7 +1366,7 @@ html, body {
 .site-footer .cont .right-block .block {
   float: left;
   height: 100%;
-  border-left: 1px solid #c9ba8b;
+  border-left: 1px solid #dddddd;
 }
 
 .site-footer .cont .right-block .block .info-block {
@@ -1288,8 +1459,8 @@ html, body {
   width: 205px;
   height: 30px;
   border: 0px solid #6c6c6a;
-  background-color: #6c6c6a;
-  color: #fce69d;
+  background-color: #127cc6;
+  color: #ffffff;
   font-size: 16px;
   margin: 10px 0 0 0;
   font-family: 'Century Gothic';
@@ -1308,7 +1479,7 @@ html, body {
 .site-footer .cont .right-block .block h2 {
   padding: 40px 0 0 0;
   font-size: 20px;
-  color: #565656;
+  color: #dddddd;
   font-family: 'Century Gothic';
   margin: 0;
 }
@@ -1718,6 +1889,9 @@ html, body {
   .site-content .home-page .top-baner-block .cont {
     width: 1170px;
   }
+  .site-content .profile-page .top-baner-block .cont {
+    width: 1170px;
+  }
   .site-content .home-page .what-we-do .top-title-block .cont {
     width: 1170px;
   }
@@ -1962,6 +2136,9 @@ html, body {
     width: 1024px;
   }
   .site-content .home-page .top-baner-block .cont {
+    width: 1024px;
+  }
+  .site-content .profile-page .top-baner-block .cont {
     width: 1024px;
   }
   .site-content .home-page .what-we-do .top-title-block .cont {

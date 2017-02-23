@@ -32,9 +32,9 @@ $(document).ready(function () {
         }
     });
 
-    if ($(".site-content div").hasClass("profile-page") || $(".site-content div").hasClass("error-page")){
-        $(".site-header ").css("background-color", "#141414");
-    }
+    // if ($(".site-content div").hasClass("profile-page") || $(".site-content div").hasClass("error-page")){
+    //     $(".site-header ").css("background-color", "#127cc6");
+    // }
 
     $(".site-header .cont .right-block .burger-block").on("click", function () {
         $(".site-menu").toggleClass("show");
