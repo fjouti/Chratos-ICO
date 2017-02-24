@@ -1,0 +1,144 @@
+<% include ./partials/header %>
+
+<div class="site-content">
+    <div class="profile-page">
+        <div class="top-baner-block" style="height:808px;">
+            <div class="cont">
+                <div class="middle">
+                    <h2>financial marketing
+                        experts</h2>
+                </div>
+
+                <div class="menu-block">
+                    <div class="left-block">
+                        <ul>
+                            <li><a href="/about">about</a></li>
+                            <li><a href="/faq">faq</a></li>
+                            <li><a href="#">support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main id="about-main">
+
+            <section>
+                <div class="about-us-bg">
+                    <div class="container">
+                        <div class="row">
+                            <h1>about us</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row who-we-are"><!-- Who we are -->
+                        <div class="col-sm-6">
+                            <div class="hwa-bg-for-img">
+                                <!-- img -bg -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-triangle">
+                                <h2>who we are</h2>
+                                <article>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy
+                                    text ever since the 1500s, when an unknown printer took a galley
+                                    of type and scrambled it to make a type specimen book. It has
+                                    survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised
+                                    in the 1960s with the release of Letraset sheets containing Lorem
+                                    Ipsum passages, and more recently with desktop publishing
+                                    software like Aldus PageMaker.
+                                </article>
+                            </div>
+                        </div>
+                    </div><!-- Who we are end-->
+                    <div class="row what-we-do"><!-- what-we-do -->
+                        <div class="col-sm-6">
+                            <div class="bg-esiminch">
+                                <h2>what we do</h2>
+                                <article>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy
+                                    text ever since the 1500s, when an unknown printer took a galley
+                                    of type and scrambled it to make a type specimen book. It has
+                                    survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised
+                                    in the 1960s with the release of Letraset sheets containing Lorem
+                                    Ipsum passages, and more recently with desktop publishing
+                                    software like Aldus PageMaker.
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wwd-bg-for-img">
+                                <!-- img -bg -->
+                            </div>
+                        </div>
+                    </div><!-- what-we-do row end -->
+                </div>
+
+                <div class="container-fluid sign-up-row">
+                    <div class="row"><!-- sign-up row  -->
+                        <div class="container">
+                            <p>we can help you have better conversations with your customers</p>
+                            <button>sign up now</button>
+                        </div>
+                    </div><!-- sign-up row end -->
+                </div>
+            </section>
+
+            <section><!-- Our team section  -->
+                <div class="container">
+                    <div class="row">
+                        <h2 class="our-team-h2">our team</h2>
+                    </div>
+                    <div class="row text-center our-t">
+                        <div class="col-sm-3">
+                            <div class="our-team-for-bg">
+                                <div class="our-team-for-img">
+                                    <img class="img-responsive" src="images/tm1.png" alt="tm1.png">
+                                </div>
+                                <h3 class="text-uppercase">Scott jenkins</h3>
+                                <p class="text-uppercase">ACCOUNT DIRECTOR</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="our-team-for-bg">
+                                <div class="our-team-for-img">
+                                    <img class="img-responsive" src="images/tm2.png" alt="tm1.png">
+                                </div>
+                                <h3 class="text-uppercase">JESSICA PRISTON</h3>
+                                <p class="text-uppercase">SEARCH SPECIALIST</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="our-team-for-bg">
+                                <div class="our-team-for-img">
+                                    <img class="img-responsive" src="images/tm3.png" alt="tm1.png">
+                                </div>
+                                <h3 class="text-uppercase">LAWRENCE LARSON</h3>
+                                <p class="text-uppercase">EXECUTIVE PRODUCER</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="our-team-for-bg">
+                                <div class="our-team-for-img">
+                                    <img class="img-responsive" src="images/tm4.png" alt="tm1.png">
+                                </div>
+                                <h3 class="text-uppercase">OLIVIA GROSH</h3>
+                                <p class="text-uppercase">PARTNER & STRATEGIC LEAD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- Our team section end -->
+        </main>
+    </div>
+</div>
+
+<% include ./partials/footer %>

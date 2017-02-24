@@ -3,7 +3,6 @@ a, abbr, acronym, address, applet, article, aside, audio, big, blockquote, body,
   margin: 0;
   padding: 0;
   border: 0;
-  font: inherit;
   vertical-align: baseline;
   outline: 0 !important;
 }
@@ -771,6 +770,14 @@ html, body {
 }
 /************About US******************/
 
+.img-chart {
+  margin-top: 80px;
+}
+.about-content{
+  text-align: justify;
+  line-height: 30px;
+  font-size: 18px;
+}
 .site-content .profile-page .top-baner-block {
   width: 100%;
   position: relative;

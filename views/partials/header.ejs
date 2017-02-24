@@ -24,9 +24,12 @@
         </div>
         <div class="right-block">
             <div class="burger-block">
+                 <% if(typeof(user) === 'undefined') { %>
+                    <button type="button" class="btn btn-default header-btn" data-toggle="modal" data-target="#myModalLogin">LOGIN</button>
+                    <button type="button" class="btn btn-default header-btn register-btn" data-toggle="modal" data-target="#myModalRegister">REGISTER</button>
+                <% } %>
                 <button type="button" class="btn btn-default header-btn">BUY</button>
-                <button type="button" class="btn btn-default header-btn" data-toggle="modal" data-target="#myModalLogin">LOGIN</button>
-                <button type="button" class="btn btn-default header-btn register-btn" data-toggle="modal" data-target="#myModalRegister">REGISTER</button>
+                
             </div>
         </div>
     </div>
