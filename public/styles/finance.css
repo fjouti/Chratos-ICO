@@ -1310,7 +1310,7 @@ html, body {
 .site-footer {
   margin: 0 0 0 0;
   height: 227px;
-  background-color: #000; }
+  background-color: #127cc9; }
 .site-footer .logo-block img {
   width: 115px;
   height: auto;
@@ -1493,7 +1493,7 @@ html, body {
 
 /* ram */
 #about-main {
-  margin-top: 190px;
+  margin-top: 60px;
 }
 
 .main-nav {
@@ -1505,7 +1505,7 @@ html, body {
 }
 
 .about-us-bg {
-  background: #E8B616;
+  background: transparent;
   min-height: 40px;
 }
 
@@ -1516,7 +1516,7 @@ html, body {
   padding-right: 5px;
   font-weight: bold;
   color: #696969;
-  background: #fff;
+  background: transparent;
   font-size: 40px;
 }
 
@@ -1657,9 +1657,8 @@ html, body {
   padding-top: 220px;
   padding-right: 100px;
   padding-left: 15px;
-  margin-top: 130px;
   min-height: 560px;
-  background: url(../images/faq-topbg.png);
+  background:linear-gradient(to bottom right, #127cc6, #f9d9c4);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

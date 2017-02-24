@@ -3,7 +3,17 @@
     <div class="profile-page faq-page">
         <main>
             <div class="container-fluid faq-cont">
-                
+                <div class="faq-searchinner">
+                    <h2>frequently asked questions</h2>
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="type to search" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div><!-- faq-cont end -->
             <!-- Accordion -->
             <div class="container">
@@ -259,6 +269,7 @@
                                 <!-- end of #bs-collapse  -->
                             </div>
                         </div>
+
                     </div>
                 </div><!-- FAQ accordion wrapper end-->
             </div><!-- Accordion end -->
