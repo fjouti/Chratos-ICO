@@ -940,6 +940,33 @@ html, body {
   color: #ffffff;
   font-size: 20px;
 }
+.site-content .profile-page .slack-section {
+  background: url("../images/slack-back.png");
+  height: 720px;
+  margin-top: 80px;
+  padding-top: 80px;
+}
+.site-content .profile-page .slack-section .holder .wrapper .community-icon{
+  background: url("../images/community-icon.png");
+  width: 100%;
+  line-height: 90px;
+  height: 90px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.site-content .profile-page .slack-section .holder{
+  color: #ffffff;
+  padding: 0 50px 0 50px;
+}
+.site-content .profile-page .slack-section .holder .wrapper h1{
+  margin-bottom: 20px;
+}
+.site-content .profile-page .slack-section .holder .wrapper p{
+  line-height: 20px;
+  font-size: 1.1em;
+  line-height: 20px;
+}
 /**************************************/
 .site-content .home-page .what-we-do {
   margin: 70px 0 0 0;
