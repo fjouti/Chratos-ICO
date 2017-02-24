@@ -1,4 +1,128 @@
 <% include ./partials/header %>
+<!-- Modals -->
+<div class="modal fade" id="myModalLogin" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="left-block">
+                    <img src="images/login-cion.png" alt="">
+                    <div>
+                        <p>already have an account?</p>
+                        <h2>log in here</h2>
+                    </div>
+                </div>
+                <div class="right-block">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form action="/signin" method="post">
+                    <input type="text" name="username" placeholder="username">
+                    <input type="password" name="password" placeholder="password">
+                    <button type="submit">log in</button>
+                </form>
+
+                <!--<div>
+                    <label>
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                        <label for="checkbox"></label>
+                        <span>keep me logged in</span>
+                    </label>
+
+                    <a href="#">forgot your password?</a>
+                </div>-->
+            </div>
+            <div class="modal-footer">
+                <h2>... or logg in with:</h2>
+                <ul>
+                    <li>
+                        <a href="/auth/facebook">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <span>facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/auth/google">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            <span>google + </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="myModalRegister" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="left-block">
+                    <img src="images/reg-icon.png" alt="">
+                    <div>
+                        <p>don’t have an account?</p>
+                        <h2>register now</h2>
+                    </div>
+                </div>
+                <div class="right-block">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <form action="/signup" method="post">
+                    <% if(typeof(ref) !== 'undefined') { %>
+                        <p>
+                            <input type="text" placeholder="Referer" name="referred" value="<%= ref %>" readonly="readonly">
+                        </p>
+                    <% } %>
+
+                    <p>
+                        <input type="text" placeholder="full name" name="full_name">
+                    </p>
+
+                    <p>
+                        <input type="text" placeholder="username" name="username">
+                    </p>
+
+                    <p>
+                        <input type="email" placeholder="email" name="email">
+                    </p>
+
+                    <p>
+                        <input type="password" placeholder="password" name="password">
+                    </p>
+                    <button type="submit">register</button>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <h2>... or register in with:</h2>
+                <ul>
+                    <li>
+                        <a href="/auth/facebook">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <span>facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/auth/google">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            <span>google + </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 <div class="site-content">
     <div class="profile-page faq-page">
         <main>

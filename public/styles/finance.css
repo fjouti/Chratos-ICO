@@ -1654,10 +1654,9 @@ html, body {
 
 .faq-cont {
   text-align: right;
-  padding-top: 220px;
+  padding-top: 80px;
   padding-right: 100px;
   padding-left: 15px;
-  min-height: 560px;
   background:linear-gradient(to bottom right, #127cc6, #f9d9c4);
   background-repeat: no-repeat;
   background-size: cover;
