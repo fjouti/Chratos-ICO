@@ -139,8 +139,9 @@ html, body {
 }
 
 .modal-backdrop {
-  background-image: url("../images/modal-background.png");
-  opacity: 1 !important;
+  background-color: #2b71b1;
+/*  background-image: url("../images/modal-background.png");*/
+  opacity:1  !important;
 }
 
 .error-not {
@@ -158,13 +159,13 @@ html, body {
 }
 
 .modal .modal-dialog {
-  border: 2px solid #ffc815;
   border-radius: 0;
 }
 
 .modal .modal-dialog .modal-content {
   padding: 60px;
-  background-color: transparent;
+  background-color: #fff;
+  opacity: 0.9;
 }
 
 .modal .modal-dialog .modal-content .modal-header {
@@ -208,7 +209,7 @@ html, body {
 .modal .modal-dialog .modal-content .modal-header .left-block div h2 {
   font-size: 32px;
   line-height: 32px;
-  color: #ffc815;
+  color: #2b71b1;
   font-family: 'Century Gothic';
   margin: 0;
   padding: 0;
@@ -219,7 +220,7 @@ html, body {
 }
 
 .modal .modal-dialog .modal-content .modal-header .right-block .close {
-  color: #ffc815;
+  color: #2b71b1;
   opacity: 1;
   font-size: 33px;
   font-weight: 100;
@@ -243,7 +244,7 @@ html, body {
 }
 
 .modal .modal-dialog .modal-content .modal-body input:focus {
-  border: 1px solid #ffc815;
+  border: 1px solid #2b7cb1;
 }
 
 .modal .modal-dialog .modal-content .modal-body input:nth-of-type(2) {
@@ -253,8 +254,8 @@ html, body {
 .modal .modal-dialog .modal-content .modal-body button {
   width: 100%;
   height: 62px;
-  background-color: #ffc815;
-  color: #141414;
+  background-color: #2b71b1;
+  color: #f0f0f0;
   font-family: 'Century Gothic';
   font-size: 32px;
   border: 0px solid transparent;
@@ -364,14 +365,18 @@ html, body {
 
 .modal .modal-dialog .modal-content .modal-footer ul li:first-child {
   margin: 0;
+    background-color: #405e9b;
 }
-
+.modal .modal-dialog .modal-content .modal-footer ul li:last-child{
+  background-color: #d65959;
+}
 .modal .modal-dialog .modal-content .modal-footer ul li a {
   display: block;
   width: 100%;
   height: 100%;
   text-decoration: none;
   text-align: center;
+
   line-height: 40px;
 }
 
@@ -942,7 +947,7 @@ html, body {
 }
 .site-content .profile-page .slack-section {
   background: url("../images/slack-back.png");
-  height: 840px;
+  height: 860px;
   margin-top: 50px;
   padding-top: 40px;
 }
