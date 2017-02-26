@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="libs/OwlCarousel2-2.2.0/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    <link rel="stylesheet" href="js/bootstrap.min.js">
     <link rel="stylesheet" href="styles/finance.css">
     <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
 </head>
@@ -29,23 +29,12 @@
                     <button type="button" class="btn btn-default header-btn" data-toggle="modal" data-target="#myModalLogin">LOGIN</button>
                     <button type="button" class="btn btn-default header-btn register-btn" data-toggle="modal" data-target="#myModalRegister">REGISTER</button>
                 <% } %>
+                <% if(typeof(user) !== 'undefined') { %>
+                    <div class="btn btn-default header-btn"><a href="/profile">PROFILE</a></div>
+                    <div type="button" class="btn btn-default header-btn"><a href="/logout">LOGOUT</a></div>
+                <% } %>
             </div>
         </div>
-    </div>
-
-    <div class="site-menu">
-        <ul>
-            <li class="active"><a href="/">home</a></li>
-            <% if(typeof(user) !== 'undefined') { %>
-                <li><a href="/profile">profile</a></li>
-                <li><a href="/signout">logout</a></li>
-            <% } %>
-
-<!--             <div class="close-burger">
-                <span></span>
-                <span></span>
-            </div> -->
-        </ul>
     </div>
     <% if(typeof(errorMessage) !== 'undefined') {%>
         <div class="error-not"><%= errorMessage %></div>
