@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="js/bootstrap.min.js">
-    <link rel="stylesheet" href="styles/finance.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel="stylesheet" href="styles/style.css">
+          <link rel="stylesheet" href="styles/finance.css">
     <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
 </head>
 <body>
@@ -31,7 +36,7 @@
                 <% } %>
                 <% if(typeof(user) !== 'undefined') { %>
                     <div class="btn btn-default header-btn"><a href="/profile">PROFILE</a></div>
-                    <div type="button" class="btn btn-default header-btn"><a href="/logout">LOGOUT</a></div>
+                    <div type="button" class="btn btn-default header-btn"><a href="/signout">LOGOUT</a></div>
                 <% } %>
             </div>
         </div>
