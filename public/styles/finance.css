@@ -26,6 +26,7 @@ html {
 body {
   line-height: 1;
   word-wrap: break-word;
+  font-family: "Lato","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 }
 
 ol, ul {
@@ -82,6 +83,738 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+/* -------------------------------------------------------------- Buy */
+.aboutnlg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 54px;
+  line-height: 54px;
+  font-family: 'FontAwesome';
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-size: 1.3em;
+  text-align: center;
+  color: #40c294;
+  -o-transition: all .2s;
+  -ms-transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.aboutnlg:hover {
+  color: #51d4a6;
+}
+.buy {
+  position: relative;
+  padding: 60px 0 0 0;
+  background-color: #f3f7fd;
+  background: rgb(243,247,253); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(243,247,253,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(243,247,253,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(243,247,253,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f7fd', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.demand {
+  float: left;
+  width: 100%;
+  padding: 5px;
+  margin: 0 0 20px 0;
+  color: #fff;
+  text-align: center;
+  background-color: #E53935;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px;
+}
+
+#buy {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+.buy .holder {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.buy-form {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 40px;
+  border: 1px solid #d6e6f1;
+  background-color: #fff;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  z-index: 888;
+}
+
+.inapp {
+  border: 0;
+  -webkit-border-radius: 0; 
+  -moz-border-radius: 0; 
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+@media (max-width: 880px) {
+  #buy {
+    top: 61px;
+  }
+
+  .buy-form {
+    padding: 40px 10px 40px 10px;
+    border: 0;
+    border-top: 1px solid #dce6f2;
+    border-bottom: 1px solid #dce6f2;
+    -webkit-border-radius: 0; 
+    -moz-border-radius: 0; 
+    border-radius: 0;
+  }
+}
+
+/* -------------------------------------------------------------- Form */
+
+.buy-header {
+  float: left;
+  width: 100%;
+  padding: 5px 5px 10px 5px;
+}
+
+.buy-header h2 {
+  font-size: 1.8em;
+  line-height: 1.4em;
+  padding: 0 0 5px 0;
+}
+
+.buy-header p {
+  font-size: 1.4em;
+  padding: 0 0 30px 0;
+}
+
+.buy-title {
+  float: left;
+  width: 100%;
+  padding: 5px;
+  font-weight: 700;
+  font-size: .9em;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.buy-options {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px 0;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+}
+
+.buy-option {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+.buy-option label{
+  display: block;
+}
+.buy-payment {
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
+
+.buy-inputs {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px 0;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px;
+}
+
+.buy-checks {
+  float: left;
+  width: 100%;
+}
+
+.buy-check {
+  float: left;
+  width: 50%;
+  max-width: 80px;
+  padding: 5px;
+}
+
+.buy-check [type="radio"] + span {
+  text-align: center;
+}
+
+.buy-input {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 2px solid #ddd;
+}
+
+.buy-select {
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
+
+.buy-select-last {
+  border-top: 2px solid #ddd;
+}
+
+.buy-submit {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0 0 0;
+}
+
+.buy-form label {
+    position: relative;   
+    cursor: pointer;
+    width: 100%;
+}
+
+.buy-form label [type="radio"] {
+    display: none;
+}
+
+.buy-form .buy-submit .nocks, .buy-form .buy-limit
+{
+  display: none;
+}
+
+.buy-price {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.buy-form [type="radio"] + span {
+  position: relative;
+  float: left;
+  width: 100%;
+    line-height: 20px;
+  padding: 12px 10px 10px 10px;
+  color: #444;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px;
+}
+
+.buy-form :checked + span {
+  border: 2px solid #40c294;
+  color: #40c294;
+}
+
+.checked {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 1.4em;
+  line-height: 70px;
+  font-family: 'FontAwesome';
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.buy-limit {
+  float: left;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #df4a4a;
+  padding: 15px 5px 5px 5px;
+}
+
+.buy-terms {
+  float: left;
+  width: 100%;
+  font-size: .9em;
+  line-height: 1.3em;
+  color: #aaa;
+  padding: 20px 5px 0 5px;
+}
+
+.buy-form [type="radio"] + span .checked {
+  color: #fff;
+}
+
+.buy-form :checked + span .checked {
+  color: #40c294;
+}
+
+.buy-form [type="checkbox"][disabled] + span {
+    background: #f00;  
+}
+
+.buy input[type=text],
+.buy input[type=email],
+.inapp input[type=text],
+.inapp input[type=email] {
+  float: left;
+  width: 100%;
+  line-height: 24px;
+  padding: 10px;
+  border: 0;
+  background-color: #fff;
+  font-family: 'Lato', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+    -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.buy input[type=text]:focus,
+.buy input[type=email]:focus,
+.inapp input[type=text]:focus,
+.inapp input[type=email]:focus {
+  background-color: #fff;
+}
+
+.buy .submit,
+.inapp .submit {
+  float: left;
+  width: 100%;
+  height: 54px;
+  line-height: 54px;
+  font-family: 'Lato', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 600;
+  font-size: 1.05em;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+  background-color: #40c294;
+  -o-transition: all .2s;
+    -ms-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+  transition: all .2s;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.buy .submit:hover,
+.inapp .submit:hover {
+  color: #fff;
+  background-color: #51d4a6;
+}
+
+@media (max-width: 800px) {
+  .buy-option {
+    width: 100%;
+  }
+}
+
+
+
+/* -------------------------------------------------------------- NLG Desc */
+
+.aboutnlg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 54px;
+  line-height: 54px;
+  font-family: 'FontAwesome';
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-size: 1.3em;
+  text-align: center;
+  color: #40c294;
+  -o-transition: all .2s;
+    -ms-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.aboutnlg:hover {
+  color: #51d4a6;
+}
+
+.nlgdesc {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #ddd;
+  display: none;
+}
+
+.nlgclose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  font-family: 'FontAwesome';
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-size: 1.3em;
+  text-align: center;
+  color: #ccc;
+  -o-transition: all .2s;
+    -ms-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  z-index: 888;
+}
+
+.nlgclose:hover {
+  color: #bbb;
+}
+
+.nlgcontent {
+  float: left;
+  width: 60%;
+  line-height: 1.4em;
+}
+
+.sample {
+  float: left;
+  width: 100%;
+  font-weight: 700;
+  font-size: .75em;
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #127cc5;
+}
+
+.address {
+  float: left;
+  width: 100%;
+  font-size: .9em;
+  color: #127cc5;
+}
+
+.nlgexample {
+  position: relative;
+  float: right;
+  width: 40%;
+  height: 200px;
+  background-image: url('images/nlgexample.png');
+  background-size: 98px 200px;
+  z-index: 777;
+}
+
+.nlganimation {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  margin-left: -43px;
+  width: 86px;
+  height: 152px;
+  background-image: url('images/nlgexample.gif');
+  background-size: 86px 152px;
+  z-index: 888;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .nlgexample { background-image: url('images/nlgexample@2x.png') !important; }
+}
+
+@media (max-width: 800px) {
+  .nlgdesc {
+    padding: 15px;
+  }
+  
+  .nlgcontent {
+    width: 100%;
+  }
+  
+  .nlgexample {
+    float: left;
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+}
+/* -------------------------------------------------------------- Bank Select */
+
+.bank-select select,
+.paymentMethod-select select {
+    background: transparent;
+    width: 100%;
+    padding: 10px;
+    line-height: 24px;
+  font-family: 'Lato', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.bank-select,
+.paymentMethod-select {
+    width: 100%;
+    background: url(/images/arrow.png) no-repeat right #fff;
+    background-size: 44px 44px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .bank-select,
+  .paymentMethod-select {
+    background-image: url('images/arrow@2x.png');
+  }
+}
+
+/* -------------------------------------------------------------- NLG Desc */
+
+.aboutnlg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 54px;
+  line-height: 54px;
+  font-family: 'FontAwesome';
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-size: 1.3em;
+  text-align: center;
+  color: #40c294;
+  -o-transition: all .2s;
+    -ms-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.aboutnlg:hover {
+  color: #51d4a6;
+}
+
+.nlgdesc {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #ddd;
+  display: none;
+}
+
+.nlgclose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  font-family: 'FontAwesome';
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-size: 1.3em;
+  text-align: center;
+  color: #ccc;
+  -o-transition: all .2s;
+    -ms-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  z-index: 888;
+}
+
+.nlgclose:hover {
+  color: #bbb;
+}
+
+.nlgcontent {
+  float: left;
+  width: 60%;
+  line-height: 1.4em;
+}
+
+.sample {
+  float: left;
+  width: 100%;
+  font-weight: 700;
+  font-size: .75em;
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #127cc5;
+}
+
+.address {
+  float: left;
+  width: 100%;
+  font-size: .9em;
+  color: #127cc5;
+}
+
+.nlgexample {
+  position: relative;
+  float: right;
+  width: 40%;
+  height: 200px;
+  background-image: url('images/nlgexample.png');
+  background-size: 98px 200px;
+  z-index: 777;
+}
+
+.nlganimation {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  margin-left: -43px;
+  width: 86px;
+  height: 152px;
+  background-image: url('images/nlgexample.gif');
+  background-size: 86px 152px;
+  z-index: 888;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .nlgexample { background-image: url('images/nlgexample@2x.png') !important; }
+}
+
+@media (max-width: 800px) {
+  .nlgdesc {
+    padding: 15px;
+  }
+  
+  .nlgcontent {
+    width: 100%;
+  }
+  
+  .nlgexample {
+    float: left;
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+}
+
+/* -------------------------------------------------------------- Extras */
+
+.extra-row {
+  float: left;
+  width: 100%;
+}
+
+.extra-column {
+  float: left;
+  padding: 20px 0 0 0;
+}
+
+/* -------------------------------------------------------------- Provider */
+
+.provider a,.provider a:active,.provider a:visited {
+  float: left;
+  height: 26px;
+  padding: 0 20px 0 72px;
+  font-weight: 700;
+  font-size: .7em;
+  line-height: 13px;
+  letter-spacing: .02em;
+  color: #bbb;
+  text-transform: uppercase;
+  background-image: url('/images/nocks.png') !important;
+  background-position: 0 0;
+  background-size: 62px 26px;
+  z-index: 888;
+  background-repeat: no-repeat;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .provider a,.provider a:active,.provider a:visited { background-image: url('images/nocks@2x.png') !important; }
+}
+
+
+/* -------------------------------------------------------------- SSL */
+
+.ssl {
+  float: left;
+  height: 26px;
+  padding: 0 20px 0 30px;
+  font-weight: 700;
+  font-size: .7em;
+  line-height: 13px;
+  letter-spacing: .02em;
+  color: #bbb;
+  text-transform: uppercase;
+  background-image: url('/images/ssl.png') !important;
+  background-position: 0 0;
+  background-size: 20px 26px;
+  z-index: 888;
+  background-repeat: no-repeat;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .ssl { background-image: url('/images/ssl@2x.png') !important; }
+}
+
+/* -------------------------------------------------------------- Sales */
+
+.sales {
+  float: left;
+  height: 26px;
+  padding: 0 0 0 10px;
+  font-weight: 700;
+  font-size: .7em;
+  line-height: 13px;
+  letter-spacing: .02em;
+  color: #bbb;
+  text-transform: uppercase;
+  z-index: 888;
+}
+
+.sales-number {
+  float: left;
+  height: 26px;
+  font-weight: 700;
+  padding: 4px 5px 6px 5px;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: -.02em;
+  color: #bbb;
+  text-transform: uppercase;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px;
 }
 
 /*input[type=text], input[type=email], input[type=password], input[type=number], textarea {
